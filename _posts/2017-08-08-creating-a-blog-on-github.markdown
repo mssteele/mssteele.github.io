@@ -61,7 +61,7 @@ I am not going to cover Docker itself in detail here, I might do a separate post
 
 ### Create a new Jekyll project
 
-To create a new Jekyll project in the current directory, create a file named `docker-compose.yml` with the following contents:
+To create a new Jekyll project in a new subdirectory of the current directory, create a file named `docker-compose.yml` with the following contents:
 
 ```yml
 jekyll:
@@ -79,13 +79,13 @@ Then run this from the command line using:
 docker-compose up
 ```
 
-The new Jekyll project is made in the `MyJekyllProject` subdirectory.
+The new Jekyll project is created in the `MyJekyllProject` subdirectory.
 
 Ensure a .gitignore file is created. This should contain an entry to exclude the `_site/` directory. This directory will contain the locally built site, and should not be pushed to GitHub as that will build the site itself.
 
 ### Serve a Jekyll site
 
-To serve up the Jekyll site (and watch for changes), create a new `docker-compose.yml` file in the directory containing the newly created Jekyll project, containing the following:
+To serve up the Jekyll site (and watch for changes), create a new `docker-compose.yml` file in the same directory as the newly created Jekyll project, with the following contents:
 
 ```yml
 jekyll:
@@ -97,7 +97,7 @@ jekyll:
         - .:/srv/jekyll
 ```
 
-(I needed to add the `--force_polling` option to get the file watching working. It looks like this is only necessary when running on Windows.) 
+(I needed to add the `--force_polling` option to get the file watching working. It looks like this is only necessary when running on Windows.)
 Then run this from the command line using:
 
 ```sh
