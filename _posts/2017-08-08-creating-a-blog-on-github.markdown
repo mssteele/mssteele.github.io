@@ -30,7 +30,7 @@ Site configuration is stored in `_config.yml`; properties in this file can then 
 
 Blog posts are placed inside a `_posts` directory, html layout files for the template engine are beneath a `_layouts` directory, etc.
 
-Folders relating to a site's theme are not actually present when you create a new Jekyll project, because the default files are stored outside of the project. To override a particular theme file you need to create a local copy in the correctly named folder. To obtain the default files, visit the GitHub repository of the them. For example the default them is [minima](https://github.com/jekyll/minima). The default page footer can be obtained [here](https://github.com/jekyll/minima/blob/master/_includes/footer.html). 
+Folders relating to a site's theme are not actually present when you create a new Jekyll project, because the default files are stored outside of the project. To override a particular theme file you need to create a local copy in the correctly named folder. To obtain the default files, visit the GitHub repository of the theme you are using. For example the default page footer of the [minima](https://github.com/jekyll/minima) theme can be obtained [here](https://github.com/jekyll/minima/blob/master/_includes/footer.html). 
 
 
 ## Running Jekyll Locally
@@ -67,8 +67,6 @@ To create a new Jekyll project in a new subdirectory of the current directory, c
 jekyll:
     image: jekyll/jekyll:pages
     command: jekyll new ./MyJekyllProject
-    ports:
-        - 4000:4000
     volumes:
         - .:/srv/jekyll
 ```
@@ -97,7 +95,7 @@ jekyll:
         - .:/srv/jekyll
 ```
 
-(I needed to add the `--force_polling` option to get the file watching working. It looks like this is only necessary when running on Windows.)
+I needed to add the `--force_polling` option to get the file watching working. It looks like this is only necessary when running on Windows.
 Then run this from the command line using:
 
 ```sh
